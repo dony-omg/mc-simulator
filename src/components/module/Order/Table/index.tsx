@@ -87,6 +87,6 @@ const data: DataType[] = [
 
 export default function OrderTable() {
     return (
-        <Table columns={columns} dataSource={data} />
+        <Table style={{ width: '100%' }} columns={columns} dataSource={data} />
     )
 }

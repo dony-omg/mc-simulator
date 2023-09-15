@@ -1,22 +1,21 @@
-import { Card, Col, Row, Space } from 'antd';
-import OrderTable from '../Table';
+import { Card, Space } from 'antd';
 import OrderDetail from '../Detail';
+import OrderTable from '../Table';
 
 export default function OrderContainer() {
     return (
-        <div>
-            <Row >
-                <Col>
-                    <Card style={{ margin: 10 }}>
+        <div style={{ display: 'flex' }}>
+            <div style={{ flex: 2, marginRight: 15 }}>
+                <Card>
+                    <Space direction="vertical" size="middle">
+                        {/* <CreateOrderButton /> */}
                         <OrderTable />
-                    </Card>
-                </Col>
-                <Col flex={1}>
-                    <div style={{ margin: 10 }}>
-                        <OrderDetail />
-                    </div>
-                </Col>
-            </Row>
+                    </Space>
+                </Card>
+            </div>
+            <div style={{ flex: 1 }}>
+                <OrderDetail />
+            </div>
         </div>
     )
 }

@@ -11,7 +11,7 @@ interface Props {
 export default function ContainerLayout({ children, title }: Props) {
     return (
         <div>
-            <Title level={2}>{title}</Title>
+            <Title level={2}># {title}</Title>
             <Divider />
             {children}
         </div>
