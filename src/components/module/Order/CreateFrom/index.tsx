@@ -66,7 +66,7 @@ function CreateOrderFrom({
 }
 
 interface Props {
-    typeButton?: 'primary' | 'danger' | 'dashed' | 'link' | 'text' | 'ghost' | undefined;
+    typeButton?: 'primary' | 'dashed' | 'link' | 'text' | 'ghost' | undefined;
 }
 export default function CreateOrderButton({ typeButton = 'primary' }: Props) {
     const [open, setOpen] = useState(false);
@@ -79,7 +79,7 @@ export default function CreateOrderButton({ typeButton = 'primary' }: Props) {
     return (
         <div>
             <Button
-                type="link"
+                type={"link"}
                 onClick={() => {
                     setOpen(true);
                 }}

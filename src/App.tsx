@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
-
+import { App as AppAntd } from 'antd';
 // Layout
 import PageLayout from './components/PageLayout';
 
@@ -12,15 +12,16 @@ import './App.css';
 function App() {
 
     return (
-
-        <Router>
-            <Routes>
-                <Route path="/" element={(<PageLayout children={<Outlet />} />)} >
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/mc-detail/:id" element={<MCDetail />} />
-                </Route>
-            </Routes>
-        </Router>
+        <AppAntd>
+            <Router>
+                <Routes>
+                    <Route path="/" element={(<PageLayout children={<Outlet />} />)} >
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/mc-detail/:id" element={<MCDetail />} />
+                    </Route>
+                </Routes>
+            </Router>
+        </AppAntd>
 
     )
 }
