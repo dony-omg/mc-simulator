@@ -9,7 +9,7 @@ import { useFetch } from '../hooks/useFetch';
 export default function HomePage() {
     // merchandises data
     const [merchandise, setMerchandise] = useState<any[]>([]);
-    const { data, } = useFetch("http://192.168.1.2:4000/api/v1/merchants?page_id=1&per_page=100", {
+    const { data, } = useFetch("/merchants?page_id=1&per_page=100", {
         method: 'GET',
         redirect: 'follow'
     });

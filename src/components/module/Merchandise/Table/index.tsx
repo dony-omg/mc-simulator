@@ -27,7 +27,10 @@ const columns: ColumnsType<DataType> = [
         title: 'Code',
         dataIndex: 'code',
         key: 'id',
-        render: (text) => <Link to="/mc-detail/1">{text}</Link>,
+        render: (_, { code }) => {
+            console.log('code', code);
+            return (<Link to={`/mc-detail/${code}`}>{code}</Link>)
+        },
     },
     {
         title: 'Name',
@@ -90,36 +93,13 @@ const columns: ColumnsType<DataType> = [
     },
 ];
 
-const data: DataType[] = [
-    {
-        key: '1',
-        name: 'John Brown',
-        age: 32,
-        address: 'New York No. 1 Lake Park',
-        tags: ['nice', 'developer'],
-    },
-    {
-        key: '2',
-        name: 'Jim Green',
-        age: 42,
-        address: 'London No. 1 Lake Park',
-        tags: ['loser'],
-    },
-    {
-        key: '3',
-        name: 'Joe Black',
-        age: 32,
-        address: 'Sydney No. 1 Lake Park',
-        tags: ['cool', 'teacher'],
-    },
-];
+
 
 interface Props {
     dataTable: any[];
 }
 
 export default function TableMerchandise({ dataTable }: Props) {
-    console.log('TableMerchandise', dataTable);
     return (
         <Table columns={columns} dataSource={dataTable} />
     )

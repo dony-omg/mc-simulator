@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { App } from 'antd';
+
+const BASE_URL = 'http://192.168.1.2:4000/api/v1';
+
 /**
  * @name useFetch hook
  * @param url  - url to fetch data from
@@ -13,10 +16,9 @@ export const useFetch = (url: string, option?: any) => {
     const [error, setError] = useState<any>(null);
 
     useEffect(() => {
-
         const fetchData = async () => {
             try {
-                const response = await fetch(url, { ...option });
+                const response = await fetch(`${BASE_URL}${url}`, { ...option });
                 const data = await response.json();
                 if (data.verdict === "success") {
                     setData(data);

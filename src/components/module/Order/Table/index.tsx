@@ -17,7 +17,7 @@ const columns: ColumnsType<DataType> = [
         title: 'Name',
         dataIndex: 'name',
         key: 'name',
-        render: (text) => <Link to="/mc-detail/1">{text}</Link>,
+        render: (text) => <Link to="/order-detail">{text}</Link>,
     },
     {
         title: 'Age',

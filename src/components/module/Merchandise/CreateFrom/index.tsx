@@ -1,5 +1,6 @@
-import { Button, Form, Input, Modal, Radio } from 'antd';
+import { Button, Form, Input, Modal } from 'antd';
 import { useState } from 'react';
+import { usePost } from '../../../../hooks/usePost';
 
 interface Values {
     title: string;
@@ -45,20 +46,14 @@ function CreateMerchandiseFrom({
                 initialValues={{ modifier: 'public' }}
             >
                 <Form.Item
-                    name="title"
-                    label="Title"
+                    name="code"
+                    label="Code"
                     rules={[{ required: true, message: 'Please input the title of collection!' }]}
                 >
                     <Input />
                 </Form.Item>
-                <Form.Item name="description" label="Description">
-                    <Input type="textarea" />
-                </Form.Item>
-                <Form.Item name="modifier" className="collection-create-form_last-form-item">
-                    <Radio.Group>
-                        <Radio value="public">Public</Radio>
-                        <Radio value="private">Private</Radio>
-                    </Radio.Group>
+                <Form.Item name="name" label="Name">
+                    <Input />
                 </Form.Item>
             </Form>
         </Modal>
@@ -68,9 +63,16 @@ function CreateMerchandiseFrom({
 
 export default function CreateMerchandiseButton() {
     const [open, setOpen] = useState(false);
+    const [data, error, loading, postData] = usePost("/merchants");
 
-    const onCreate = (values: any) => {
-        console.log('Received values of form: ', values);
+    const onCreate = async (values: any) => {
+
+        const raw = JSON.stringify({
+            "code": "MC2308230120",
+            "name": "MC for Payment testing 4 PA03"
+        });
+
+        await postData(raw);
         setOpen(false);
     };
 
